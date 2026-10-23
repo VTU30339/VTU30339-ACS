@@ -1,0 +1,71 @@
+import java.util.*;
+public class Main {
+    static class Node {
+        int data;
+        Node left, right;
+        Node(int data) {
+            this.data = data;
+        }
+    }
+    static Node buildTree(String[] a) {
+        if (a.length == 0 || a[0].equals("null") || a[0].equals("-1")) {
+            return null;
+        }
+        Node root = new Node(Integer.parseInt(a[0]));
+        Queue<Node> q = new LinkedList<>();
+        q.add(root);
+        int i = 1;
+        while (!q.isEmpty() && i < a.length) {
+            Node curr = q.poll();
+            if (i < a.length && !a[i].equals("null") && !a[i].equals("-1")) {
+                curr.left = new Node(Integer.parseInt(a[i]));
+                q.add(curr.left);
+            }
+            i++;
+            if (i < a.length && !a[i].equals("null") && !a[i].equals("-1")) {
+                curr.right = new Node(Integer.parseInt(a[i]));
+                q.add(curr.right);
+            }
+            i++;
+        }
+        return root;
+    }
+    static Node lca(Node root, int p, int r) {
+        if (root == null || root.data == p || root.data == r) {
+            return root;
+        }
+        Node left = lca(root.left, p, r);
+        Node right = lca(root.right, p, r);
+        if (left != null && right != null) {
+            return root;
+        }
+        return left != null ? left : right;
+    }
+    static boolean exists(Node root, int x) {
+        if (root == null) {
+            return false;
+        }
+        if (root.data == x) {
+            return true;
+        }
+        return exists(root.left, x) || exists(root.right, x);
+    }
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        String[] a = new String[n];
+        for (int i = 0; i < n; i++) {
+            a[i] = sc.next();
+        }
+        int p = sc.nextInt();
+        int r = sc.nextInt();
+        Node root = buildTree(a);
+        if (exists(root, p) && exists(root, r)) {
+            Node ans = lca(root, p, r);
+            System.out.println(ans.data);
+        } else {
+            System.out.println(-1);
+        }
+        sc.close();
+    }
+}
