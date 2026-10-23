@@ -1,0 +1,44 @@
+import java.util.*;
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        if (n == 0) {
+            System.out.println("Height = -1");
+            System.out.println("Levels = 0");
+            return;
+        }
+        Integer[] a = new Integer[n];
+        for (int i = 0; i < n; i++) {
+            String s = sc.next();
+            a[i] = s.equals("null") || s.equals("-1")
+                    ? null : Integer.parseInt(s);
+        }
+        if (a[0] == null) {
+            System.out.println("Height = -1");
+            System.out.println("Levels = 0");
+            return;
+        }
+        Queue<Integer> q = new LinkedList<>();
+        q.add(0);
+        int levels = 0;
+        while (!q.isEmpty()) {
+            int size = q.size();
+            for (int i = 0; i < size; i++) {
+                int index = q.poll();
+                int left = 2 * index + 1;
+                int right = 2 * index + 2;
+                if (left < n && a[left] != null) {
+                    q.add(left);
+                }
+                if (right < n && a[right] != null) {
+                    q.add(right);
+                }
+            }
+            levels++;
+        }
+        System.out.println("Height = " + (levels - 1));
+        System.out.println("Levels = " + levels);
+        sc.close();
+    }
+}
