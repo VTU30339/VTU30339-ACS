@@ -20,3 +20,14 @@ public class Main {
         sc.close();
     }
 }
+
+INPUT:
+6
+1 3
+2 5
+4 6
+6 7
+5 8
+8 10
+OUTPUT:
+MaximumEvents = 4
