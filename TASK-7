@@ -42,3 +42,10 @@ public class Main {
         sc.close();
     }
 }
+
+INPUT:
+7 
+50 30 80 20 40 70 90 
+OUTPUT:
+Height = 2
+Levels = 3
