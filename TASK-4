@@ -30,3 +30,8 @@ public class Main {
         sc.close();
     }
 }
+
+INPUT:
+([{}])
+OUTPUT:
+VALID
