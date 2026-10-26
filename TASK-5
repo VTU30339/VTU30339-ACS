@@ -26,3 +26,9 @@ public class Main {
         sc.close();
     }
 }
+
+INPUT:
+7
+28 35 30 25 40 38 42
+OUTPUT:
+35 40 40 40 42 42 -1
