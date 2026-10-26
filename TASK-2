@@ -21,3 +21,9 @@ public class Main {
         sc.close();
     }
 }
+
+INPUT:
+10
+12 5 12 7 5 12 8 5 7 5
+OUTPUT:
+5 4
