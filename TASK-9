@@ -59,3 +59,14 @@ public class Main {
         sc.close();
     }
 }
+
+INPUT:
+3 5
+4 2 6 9 15
+3 1 7 20
+5 3 8 12 14 18
+OUTPUT:
+Merged:
+1 2 3 6 7 8 9 12 14 15 18 20
+TopK:
+20 18 15 14 12
