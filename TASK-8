@@ -69,3 +69,10 @@ public class Main {
         sc.close();
     }
 }
+
+INPUT:
+9
+10 5 15 2 7 12 20 1 4
+1 7
+OUTPUT:
+LCA = 5
