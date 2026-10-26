@@ -34,3 +34,13 @@ public class Main {
         sc.close();
     }
 }
+
+INPUT:
+7 5
+1 2
+2 3
+4 5
+6 7
+5 6
+OUTPUT:
+Connected Components = 2
