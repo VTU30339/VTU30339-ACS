@@ -43,3 +43,9 @@ public class Main {
         sc.close();
     }
 }
+
+INPUT:
+8 2
+A A A B B C D D 
+OUTPUT:
+8
